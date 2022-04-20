@@ -15,14 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Services"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Api.UnitTests", "tests\Bidder.Activities.Api.UnitTests\Bidder.Activities.Api.UnitTests.csproj", "{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Bidder.Activities.Api.LoadTests", "tests\Bidder.Activities.Api.LoadTests\Bidder.Activities.Api.LoadTests.shproj", "{383FD75A-134D-4EBA-AC6A-77AAA3DAE3D7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Api.Specs", "tests\Bidder.Activities.Api.Specs\Bidder.Activities.Api.Specs.csproj", "{A8B8D008-FD18-44F6-906B-8D6A31C5BB16}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		tests\Bidder.Activities.Api.LoadTests\Bidder.Activities.Api.LoadTests.projitems*{383fd75a-134d-4eba-ac6a-77aaa3dae3d7}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -54,7 +49,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113} = {98C682FA-32B4-44FC-AC59-84E29B73C744}
-		{383FD75A-134D-4EBA-AC6A-77AAA3DAE3D7} = {98C682FA-32B4-44FC-AC59-84E29B73C744}
 		{A8B8D008-FD18-44F6-906B-8D6A31C5BB16} = {98C682FA-32B4-44FC-AC59-84E29B73C744}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
