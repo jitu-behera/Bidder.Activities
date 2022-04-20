@@ -1,0 +1,39 @@
+variables:
+  - name: project_name
+    value: 'widget-activities-api'
+  - name: development_storageaccount
+    value: devsbidservicedetails
+  - group: development-load-testing-urls
+
+jobs:
+- job: jmeter
+  pool:
+    vmImage: ubuntu-latest
+  displayName: Run JMeter tests
+  steps:
+  - task: Bash@3
+    displayName: Execute JMeter tests
+    inputs:
+      targetType: filePath
+      filePath:  '$(System.DefaultWorkingDirectory)/tests/Bidder.Activities.Api.LoadTests/jmeter/test.sh'
+      arguments: '$PWD WebApiTest.jmx $(host) $(apim_key) $(testnoofusers) $(testduration) $(baseurl) $(testrampperiod)'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/tests/Bidder.Activities.Api.LoadTests/jmeter'
+      failOnStderr: false
+  - task: PublishPipelineArtifact@1
+    displayName: Publish JMeter Report
+    inputs:
+      targetPath: '$(System.DefaultWorkingDirectory)/tests/Bidder.Activities.Api.LoadTests/jmeter/report'
+      artifact: jmeter
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/tests/Bidder.Activities.Api.LoadTests/jmeter/report'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'BA-NonProd-SPN'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: 'az storage blob upload --account-name $(development_storageaccount) --container-name load-test-result --file $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip --name $(project_name)-$(Build.BuildId)-$(date +"%Y%m%d-%H%M%S").zip'

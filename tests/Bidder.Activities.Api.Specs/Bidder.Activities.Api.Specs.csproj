@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\BidderRegistrationStatus\GetBidderRegistrationStatus.feature.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="6.5.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+		<PackageReference Include="Moq" Version="4.16.1" />
+		<PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.5" />
+		<PackageReference Include="SpecFlow.xUnit" Version="3.9.8" />
+		<PackageReference Include="xunit" Version="2.4.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.12" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\Bidder.Activities.Api\Bidder.Activities.Api.csproj" />
+	</ItemGroup>
+</Project>

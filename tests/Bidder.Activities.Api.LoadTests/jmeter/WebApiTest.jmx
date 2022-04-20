@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Widget Activity Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="host" elementType="Argument">
+            <stringProp name="Argument.name">host</stringProp>
+            <stringProp name="Argument.value">${__P(host,preprod.shared.globalauctionplatform.com)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="scheme" elementType="Argument">
+            <stringProp name="Argument.name">scheme</stringProp>
+            <stringProp name="Argument.value">https</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apim_key" elementType="Argument">
+            <stringProp name="Argument.name">apim_key</stringProp>
+            <stringProp name="Argument.value">${__P(apim_key,90f16fef20be49d89aa8b9e832198088)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testnoofusers" elementType="Argument">
+            <stringProp name="Argument.name">testnoofusers</stringProp>
+            <stringProp name="Argument.value">${__P(testnoofusers,10)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testduration" elementType="Argument">
+            <stringProp name="Argument.name">testduration</stringProp>
+            <stringProp name="Argument.value">${__P(testduration,1200)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="baseurl" elementType="Argument">
+            <stringProp name="Argument.name">baseurl</stringProp>
+            <stringProp name="Argument.value">${__P(baseurl,/widget-activities-api)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testrampperiod" elementType="Argument">
+            <stringProp name="Argument.name">testrampperiod</stringProp>
+            <stringProp name="Argument.value">${__P(testrampperiod,100)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="generaltimeout" elementType="Argument">
+            <stringProp name="Argument.name">generaltimeout</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="bidtimeout" elementType="Argument">
+            <stringProp name="Argument.name">bidtimeout</stringProp>
+            <stringProp name="Argument.value">3000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="strPlatformId" elementType="Argument">
+            <stringProp name="Argument.name">strPlatformId</stringProp>
+            <stringProp name="Argument.value">&quot;20&quot;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="strMarketplaceId" elementType="Argument">
+            <stringProp name="Argument.name">strMarketplaceId</stringProp>
+            <stringProp name="Argument.value">&quot;201&quot;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="platformId" elementType="Argument">
+            <stringProp name="Argument.name">platformId</stringProp>
+            <stringProp name="Argument.value">20</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="marketplaceId" elementType="Argument">
+            <stringProp name="Argument.name">marketplaceId</stringProp>
+            <stringProp name="Argument.value">201</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="baseurlBidderReg" elementType="Argument">
+            <stringProp name="Argument.name">baseurlBidderReg</stringProp>
+            <stringProp name="Argument.value">${__P(baseurlBidderReg,/bidder-registration-api)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="slbsubscription" elementType="Argument">
+            <stringProp name="Argument.name">slbsubscription</stringProp>
+            <stringProp name="Argument.value">5702f28bf3c44117b8d52b87bd0021af</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="lotCount" elementType="Argument">
+            <stringProp name="Argument.name">lotCount</stringProp>
+            <stringProp name="Argument.value">3000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="customerCount" elementType="Argument">
+            <stringProp name="Argument.name">customerCount</stringProp>
+            <stringProp name="Argument.value">300</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain"></stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">${generaltimeout}</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">${generaltimeout}</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">ocp-apim-subscription-key</stringProp>
+            <stringProp name="Header.value">${apim_key}</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="true"/>
+        <hashTree>
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Auction Controller" enabled="true">
+            <collectionProp name="ModuleController.node_path">
+              <stringProp name="764597751">Test Plan</stringProp>
+              <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+              <stringProp name="170071582">Test Fragment</stringProp>
+              <stringProp name="1342504409">Auction Controller</stringProp>
+            </collectionProp>
+          </ModuleController>
+          <hashTree/>
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Lot Controller" enabled="true">
+            <collectionProp name="ModuleController.node_path">
+              <stringProp name="764597751">Test Plan</stringProp>
+              <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+              <stringProp name="170071582">Test Fragment</stringProp>
+              <stringProp name="781005835">Lot Controller</stringProp>
+            </collectionProp>
+          </ModuleController>
+          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Token loop Controller" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">${customerCount}</stringProp>
+          </LoopController>
+          <hashTree>
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+              <collectionProp name="ModuleController.node_path">
+                <stringProp name="764597751">Test Plan</stringProp>
+                <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+                <stringProp name="170071582">Test Fragment</stringProp>
+                <stringProp name="1035389170">TokenController setup</stringProp>
+              </collectionProp>
+            </ModuleController>
+            <hashTree/>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Lotloop Controller" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">${lotCount}</stringProp>
+          </LoopController>
+          <hashTree>
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+              <collectionProp name="ModuleController.node_path">
+                <stringProp name="764597751">Test Plan</stringProp>
+                <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+                <stringProp name="170071582">Test Fragment</stringProp>
+                <stringProp name="-1747317208">Lot Controller setup</stringProp>
+              </collectionProp>
+            </ModuleController>
+            <hashTree/>
+          </hashTree>
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+            <collectionProp name="ModuleController.node_path">
+              <stringProp name="764597751">Test Plan</stringProp>
+              <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+              <stringProp name="170071582">Test Fragment</stringProp>
+              <stringProp name="1121584800">Bidder GetStatus Controller</stringProp>
+            </collectionProp>
+          </ModuleController>
+          <hashTree/>
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+            <collectionProp name="ModuleController.node_path">
+              <stringProp name="764597751">Test Plan</stringProp>
+              <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+              <stringProp name="170071582">Test Fragment</stringProp>
+              <stringProp name="508146975">Placebid Controller array</stringProp>
+            </collectionProp>
+          </ModuleController>
+          <hashTree/>
+        </hashTree>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">prev.setIgnore()</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Upsert Bidder" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${testnoofusers}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${testrampperiod}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${testduration}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>7200.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+            <stringProp name="170071582">Test Fragment</stringProp>
+            <stringProp name="-105710385">BidderRegistration Controller</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="GetBidder Status requests" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${testnoofusers}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${testrampperiod}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${testduration}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>300000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+            <stringProp name="170071582">Test Fragment</stringProp>
+            <stringProp name="1121584800">Bidder GetStatus Controller</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Placebid requests" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${testnoofusers}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${testrampperiod}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${testduration}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>15000.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="PlaceBid" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+            <stringProp name="170071582">Test Fragment</stringProp>
+            <stringProp name="508146975">Placebid Controller array</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Placebid requests single Lot" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${testnoofusers}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${testrampperiod}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${testduration}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>240.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="PlaceBid" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-1235660414">Widget Activity Test Plan</stringProp>
+            <stringProp name="170071582">Test Fragment</stringProp>
+            <stringProp name="-1518741222">Placebid Controller array single lot</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+      </hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="true"/>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Auction Controller" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Auction" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;globalAuctionHouseId&quot;: 1,&#xd;
+    &quot;BiddingDataModified&quot;: false,&#xd;
+    &quot;userIdFromSourcePlatform&quot;: 101,&#xd;
+    &quot;sourcePlatform&quot;: ${platformId},&#xd;
+    &quot;destinationMarketplaces&quot;: [&#xd;
+        ${marketplaceId}&#xd;
+    ],&#xd;
+    &quot;auctionDetails&quot;: {&#xd;
+        &quot;title&quot;: &quot;Cinema Poster Live Auction&quot;,&#xd;
+        &quot;universalCategory&quot;: &quot;Entertainment Memorabilia&quot;,&#xd;
+        &quot;originatingCategoryPlatform&quot;: &quot;Saleroom&quot;,&#xd;
+        &quot;description&quot;: &quot;Selling Cinema Posters&quot;,&#xd;
+        &quot;termsAndConditions&quot;: &quot;Please note that all bids placed through 3rd party platforms and not propstoreauction.com, will be subject to a buyer&apos;s expense of 5%.&quot;,&#xd;
+        &quot;shippingInstructions&quot;: &quot;No shipping. Collection only!&quot;,&#xd;
+        &quot;auctionImageUrl&quot;: &quot;https://cdn.globalauctionplatform.com/a6603589-7387-447c-9633-e3a845eaac18/logo/propstore-logo.jpg&quot;,&#xd;
+        &quot;auctionStatus&quot;: &quot;New&quot;&#xd;
+    },&#xd;
+    &quot;auctionAddress&quot;: {&#xd;
+        &quot;address&quot;: &quot;Prop Store&apos;s UK HQ: Great House Farm, Chenies.&quot;,&#xd;
+        &quot;city&quot;: &quot;Rickmansworth&quot;,&#xd;
+        &quot;postalcode&quot;: &quot;WD3 6EP&quot;,&#xd;
+        &quot;state&quot;: &quot;Herts&quot;,&#xd;
+        &quot;country&quot;: &quot;GB&quot;,&#xd;
+        &quot;auctionHouseTelephone&quot;: &quot;01494 766485&quot;,&#xd;
+        &quot;auctionHouseEmail&quot;: &quot;test@test.com&quot;,&#xd;
+        &quot;auctionHouseWebAddress&quot;: &quot;https://propstoreauction.com/&quot;&#xd;
+    },&#xd;
+    &quot;biddingDetails&quot;: {&#xd;
+        &quot;timezone&quot;: &quot;UTC&quot;,&#xd;
+        &quot;currency&quot;: &quot;GBP&quot;,&#xd;
+        &quot;increment&quot;: [&#xd;
+            {&#xd;
+                &quot;low&quot;: 0,&#xd;
+                &quot;high&quot;: null,&#xd;
+                &quot;incrementValue&quot;: 10&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;reserveType&quot;: &quot;Standard&quot;,&#xd;
+        &quot;extensionTimeInSeconds&quot;: 600,&#xd;
+        &quot;isPiecemeal&quot;: true,&#xd;
+         &quot;UtcStartTime&quot;: &quot;2021-11-03T11:25:43.263Z&quot;,&#xd;
+        &quot;UtcEndsFrom&quot;: &quot;2024-11-04T11:25:43.263Z&quot;,&#xd;
+        &quot;biddingType&quot;: &quot;TimedBidding&quot;&#xd;
+    },&#xd;
+    &quot;taxDetails&quot;: {&#xd;
+        &quot;buyersPremium&quot;: 3.14,&#xd;
+        &quot;buyersPremiumCeiling&quot;: 12300,&#xd;
+        &quot;salesTax&quot;: 0.52,&#xd;
+        &quot;buyersPremiumTax&quot;: 1.61&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/slb-corebroker-api/v1/auction</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Create a lot , store as proerty in widget activity endpoints</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="x-ba-client-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-client-ip" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-ip</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-app-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-app-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-user-reference" elementType="Header">
+                  <stringProp name="Header.name">x-ba-user-reference</stringProp>
+                  <stringProp name="Header.value">1231</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-source-platform" elementType="Header">
+                  <stringProp name="Header.name">x-ba-source-platform</stringProp>
+                  <stringProp name="Header.value">20</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">ocp-apim-subscription-key</stringProp>
+                  <stringProp name="Header.value">${slbsubscription}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">globalAuctionId = new groovy.json.JsonSlurper().parse(prev.getResponseData()).auctionDetails.globalAuctionId
+def globalAuctionIdString = globalAuctionId.toString()
+props.put(&quot;auctionId&quot;,globalAuctionIdString);
+
+
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Lot Controller" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Lot" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;globalAuctionId&quot;: ${__P(auctionId)},&#xd;
+    &quot;globalAuctionHouseId&quot;: 1,&#xd;
+    &quot;userIdFromSourcePlatform&quot;: 1,&#xd;
+    &quot;sourcePlatform&quot;: ${platformId},&#xd;
+    &quot;destinationMarketplaces&quot;: [&#xd;
+        ${marketplaceId}&#xd;
+    ],&#xd;
+    &quot;biddingDataModified&quot;: true,&#xd;
+    &quot;lotDetails&quot;: {&#xd;
+        &quot;lotNumber&quot;: &quot;63&quot;,&#xd;
+        &quot;sequenceNumber&quot;: 63000,&#xd;
+        &quot;title&quot;: &quot;CAST AWAY (2000) - CHUCK NOLAND&apos;S (TOM HANKS) HERO SCREEN-MATCHED WILSON&quot;,&#xd;
+        &quot;description&quot;: &quot;This lot will be auctioned on Tuesday, November 9th. The auction will begin at 3:00pm BST and lots are sold sequentially via live auctioneer; tune in to the live streaming broadcast on auction day to follow the pace. Note other lots in the auction may close on November 10th or November 11th. \n Chuck Noland&apos;s (Tom Hanks) hero screen-matched Wilson from Robert Zemeckis/&apos; drama Cast Away. During his four years stranded alone on a desert island following a plane crash, Chuck created Wilson, his only companion, out of a volleyball he found in one of the several FedEx packages that washed ashore. The appearance of both Chuck and Wilson became more dishevelled throughout the film as they both adjusted to life on the island. \n Markings on the face and placement of the stitching on the leather screen match to later scenes on the raft Chuck created to escape the island, including a close-up of Wilson bobbing up and down the morning after a brutal storm. This shot is followed by the heartbreaking sequence in which Wilson fell off the raft and drifted out to sea, once again leaving Chuck alone. his version of Wilson also matches up to a production prop continuity Polaroid (not included in lot). \n The off-white leather volleyball is heavily distressed with paint applied to create a worn, dirtied appearance. There is a dark brown-and-red &apos;face&apos; on the front, representing Chuck&apos;s bloody handprint. It features a faded pair of eyes, nose, and mouth. The top is torn open, and an array of tobacco stalks are inserted to replicate the appearance of hair. Several stitches are present on the torn edges on the front of the ball around the opening. \n This version of Wilson was placed in water for long periods during filming. Therefore, the overall shape of the ball warped slightly, and the facial detailing became somewhat blurred compared to shots earlier in the film. All minor signs of wear present on the lot are from use on production. Dimensions: 18 cm x 18 cm x 33 cm (7\&quot; x 7\&quot; x 13\&quot;)&quot;,&#xd;
+        &quot;lowEstimate&quot;: 40000,&#xd;
+        &quot;highEstimate&quot;: 60000,&#xd;
+        &quot;primaryImage&quot;: &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/7e8be6a1-f9fb-4610-9cbd-adbe00dd2ecc.jpg&quot;,&#xd;
+        &quot;lotImages&quot;: [&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/7e8be6a1-f9fb-4610-9cbd-adbe00dd2ecc.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/8307f144-6243-475d-98e0-adbe00dda4af.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/0e4b6a75-9957-449f-ac77-adbe00e1e5b3.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/117036d5-cc21-4aa5-959d-adbe00e274a3.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/54974938-8b8d-48ad-9fa8-adbe00e30429.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/c227b5ed-1957-44e6-84df-adbe00e39543.jpg&quot;&#xd;
+        ],&#xd;
+        &quot;lotVideo&quot;: &quot;https://www.youtube.com/watch?v=4tVklCz2jcI&quot;&#xd;
+    },&#xd;
+    &quot;biddingDetails&quot;: {&#xd;
+        &quot;UtcStartTime&quot;: &quot;2021-11-03T11:25:43.263Z&quot;,&#xd;
+        &quot;UtcEndsFrom&quot;: &quot;2024-11-04T11:25:43.263Z&quot;,&#xd;
+        &quot;timeZone&quot;: &quot;Europe/London&quot;,&#xd;
+        &quot;quantity&quot;: 0,&#xd;
+        &quot;opening&quot;: 50.5,&#xd;
+        &quot;reserveType&quot;: &quot;Standard&quot;,&#xd;
+        &quot;reserve&quot;: 51,&#xd;
+        &quot;extensionTimeInSeconds&quot;: 0,&#xd;
+        &quot;currency&quot;: &quot;GBP&quot;,&#xd;
+        &quot;biddingType&quot;: &quot;TimedBidding&quot;,&#xd;
+        &quot;isPiecemeal&quot;: true,&#xd;
+        &quot;buyItNow&quot;: 500,&#xd;
+        &quot;increment&quot;: [&#xd;
+            {&#xd;
+                &quot;low&quot;: 0,&#xd;
+                &quot;high&quot;: 1000,&#xd;
+                &quot;incrementValue&quot;: 100&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;low&quot;: 1000,&#xd;
+                &quot;high&quot;: null,&#xd;
+                &quot;incrementValue&quot;: 100&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;suspended&quot;: false&#xd;
+    },&#xd;
+    &quot;lotCategory&quot;: {&#xd;
+        &quot;localCategory&quot;: &quot;AA&quot;,&#xd;
+        &quot;originatingCategory&quot;: &quot;AB&quot;,&#xd;
+        &quot;originatingCategoryPlatform&quot;: &quot;1&quot;&#xd;
+    },&#xd;
+    &quot;lotAddress&quot;: {&#xd;
+        &quot;address&quot;: &quot;ABCD-XYZ&quot;,&#xd;
+        &quot;city&quot;: &quot;Birmingham&quot;,&#xd;
+        &quot;postalCode&quot;: &quot;PO16 7GZ&quot;,&#xd;
+        &quot;state&quot;: &quot;NY&quot;,&#xd;
+        &quot;country&quot;: &quot;US&quot;&#xd;
+    },&#xd;
+    &quot;taxDetails&quot;: {&#xd;
+        &quot;buyersPremium&quot;: 3.14159265359,&#xd;
+        &quot;buyersPremiumCeiling&quot;: 12300.085090352453,&#xd;
+        &quot;salesTax&quot;: 0.525321988,&#xd;
+        &quot;buyersPremiumTax&quot;: 1.61977519054&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/slb-corebroker-api/v1/lot</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Create a lot , store as proerty in widget activity endpoints</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="x-ba-client-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-client-ip" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-ip</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-app-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-app-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-user-reference" elementType="Header">
+                  <stringProp name="Header.name">x-ba-user-reference</stringProp>
+                  <stringProp name="Header.value">1231</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-source-platform" elementType="Header">
+                  <stringProp name="Header.name">x-ba-source-platform</stringProp>
+                  <stringProp name="Header.value">20</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">ocp-apim-subscription-key</stringProp>
+                  <stringProp name="Header.value">${slbsubscription}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">globalLotId = new groovy.json.JsonSlurper().parse(prev.getResponseData()).lotDetails.globalLotId
+def globalLotIdString = globalLotId.toString()
+props.put(&quot;lotId&quot;,globalLotIdString);</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="TokenController setup" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Generate Token" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+&quot;subject&quot;: &quot;This is test token for load test&quot;,&#xd;
+&quot;auctioneerId&quot;: &quot;1&quot;, &#xd;
+&quot;externalCustomerId&quot;: &quot;${randomCustomerId}&quot;, &#xd;
+&quot;platformId&quot;: ${strPlatformId}, &#xd;
+&quot;marketPlaceId&quot;: ${strMarketplaceId}, &#xd;
+&quot;channelId&quot;: &quot;1354&quot;, &#xd;
+&quot;redirectUrl&quot;: &quot;https://corebrokertest.com&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/token-api/v1/token/generate</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Generate token and store as property to use it in widget activity endpoints.</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">Random random = new Random();
+int randomNumber = random.nextInt(10000000);
+vars.put(&quot;randomCustomerId&quot;, Integer.toString(randomNumber)+&quot;BWLoopPerf&quot;);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Ocp-Apim-Subscription-Key" elementType="Header">
+                  <stringProp name="Header.name">Ocp-Apim-Subscription-Key</stringProp>
+                  <stringProp name="Header.value">${apim_key}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">mytoken = new groovy.json.JsonSlurper().parse(prev.getResponseData()).data.jwtToken
+String newToken = &quot;Bearer &quot;+mytoken;
+props.put(&quot;myTokenList_&quot;+ ${my_token_counter}.toString(), newToken);
+  </stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">my_token_counter</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Bidder registration Request" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;baMarketplaceCode&quot;:  ${strMarketplaceId},&#xd;
+    &quot;AuctionId&quot;: ${__P(auctionId)},&#xd;
+    &quot;baAuctionHouseId&quot;: 1,&#xd;
+    &quot;customerId&quot;:&quot;${randomCustomerId}&quot;,&#xd;
+    &quot;bidderId&quot;: &quot;${randomCustomerId}&quot;,&#xd;
+    &quot;status&quot;: &quot;Approved&quot;,&#xd;
+    &quot;bidderRef&quot;: &quot;10C&quot;,&#xd;
+    &quot;cta&quot;: &quot;The beach was crowded with snow leopards2.\\nThere was no ice cream in the freezer, nor did they have money to go to the store.\\nGreen should have smelled more tranquil, but somehow it just tasted rotten.&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${baseurlBidderReg}/v1/bidder</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Lot Controller setup" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Lot" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;globalAuctionId&quot;: ${__P(auctionId)},&#xd;
+    &quot;globalAuctionHouseId&quot;: 1,&#xd;
+    &quot;userIdFromSourcePlatform&quot;: 1,&#xd;
+    &quot;sourcePlatform&quot;: ${platformId},&#xd;
+    &quot;destinationMarketplaces&quot;: [&#xd;
+        ${marketplaceId}&#xd;
+    ],&#xd;
+    &quot;biddingDataModified&quot;: true,&#xd;
+    &quot;lotDetails&quot;: {&#xd;
+        &quot;lotNumber&quot;: &quot;63&quot;,&#xd;
+        &quot;sequenceNumber&quot;: 63000,&#xd;
+        &quot;title&quot;: &quot;CAST AWAY (2000) - CHUCK NOLAND&apos;S (TOM HANKS) HERO SCREEN-MATCHED WILSON&quot;,&#xd;
+        &quot;description&quot;: &quot;This lot will be auctioned on Tuesday, November 9th. The auction will begin at 3:00pm BST and lots are sold sequentially via live auctioneer; tune in to the live streaming broadcast on auction day to follow the pace. Note other lots in the auction may close on November 10th or November 11th. \n Chuck Noland&apos;s (Tom Hanks) hero screen-matched Wilson from Robert Zemeckis/&apos; drama Cast Away. During his four years stranded alone on a desert island following a plane crash, Chuck created Wilson, his only companion, out of a volleyball he found in one of the several FedEx packages that washed ashore. The appearance of both Chuck and Wilson became more dishevelled throughout the film as they both adjusted to life on the island. \n Markings on the face and placement of the stitching on the leather screen match to later scenes on the raft Chuck created to escape the island, including a close-up of Wilson bobbing up and down the morning after a brutal storm. This shot is followed by the heartbreaking sequence in which Wilson fell off the raft and drifted out to sea, once again leaving Chuck alone. his version of Wilson also matches up to a production prop continuity Polaroid (not included in lot). \n The off-white leather volleyball is heavily distressed with paint applied to create a worn, dirtied appearance. There is a dark brown-and-red &apos;face&apos; on the front, representing Chuck&apos;s bloody handprint. It features a faded pair of eyes, nose, and mouth. The top is torn open, and an array of tobacco stalks are inserted to replicate the appearance of hair. Several stitches are present on the torn edges on the front of the ball around the opening. \n This version of Wilson was placed in water for long periods during filming. Therefore, the overall shape of the ball warped slightly, and the facial detailing became somewhat blurred compared to shots earlier in the film. All minor signs of wear present on the lot are from use on production. Dimensions: 18 cm x 18 cm x 33 cm (7\&quot; x 7\&quot; x 13\&quot;)&quot;,&#xd;
+        &quot;lowEstimate&quot;: 40000,&#xd;
+        &quot;highEstimate&quot;: 60000,&#xd;
+        &quot;primaryImage&quot;: &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/7e8be6a1-f9fb-4610-9cbd-adbe00dd2ecc.jpg&quot;,&#xd;
+        &quot;lotImages&quot;: [&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/7e8be6a1-f9fb-4610-9cbd-adbe00dd2ecc.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/8307f144-6243-475d-98e0-adbe00dda4af.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/0e4b6a75-9957-449f-ac77-adbe00e1e5b3.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/117036d5-cc21-4aa5-959d-adbe00e274a3.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/54974938-8b8d-48ad-9fa8-adbe00e30429.jpg&quot;,&#xd;
+            &quot;https://portal-images.azureedge.net/auctions-2021/the-pr10020/images/c227b5ed-1957-44e6-84df-adbe00e39543.jpg&quot;&#xd;
+        ],&#xd;
+        &quot;lotVideo&quot;: &quot;https://www.youtube.com/watch?v=4tVklCz2jcI&quot;&#xd;
+    },&#xd;
+    &quot;biddingDetails&quot;: {&#xd;
+        &quot;UtcStartTime&quot;: &quot;2021-11-03T11:25:43.263Z&quot;,&#xd;
+        &quot;UtcEndsFrom&quot;: &quot;2024-11-04T11:25:43.263Z&quot;,&#xd;
+        &quot;timeZone&quot;: &quot;Europe/London&quot;,&#xd;
+        &quot;quantity&quot;: 0,&#xd;
+        &quot;opening&quot;: 50.5,&#xd;
+        &quot;reserveType&quot;: &quot;Standard&quot;,&#xd;
+        &quot;reserve&quot;: 51,&#xd;
+        &quot;extensionTimeInSeconds&quot;: 0,&#xd;
+        &quot;currency&quot;: &quot;GBP&quot;,&#xd;
+        &quot;biddingType&quot;: &quot;TimedBidding&quot;,&#xd;
+        &quot;isPiecemeal&quot;: true,&#xd;
+        &quot;buyItNow&quot;: 500,&#xd;
+        &quot;increment&quot;: [&#xd;
+            {&#xd;
+                &quot;low&quot;: 0,&#xd;
+                &quot;high&quot;: 1000,&#xd;
+                &quot;incrementValue&quot;: 100&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;low&quot;: 1000,&#xd;
+                &quot;high&quot;: null,&#xd;
+                &quot;incrementValue&quot;: 100&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;suspended&quot;: false&#xd;
+    },&#xd;
+    &quot;lotCategory&quot;: {&#xd;
+        &quot;localCategory&quot;: &quot;AA&quot;,&#xd;
+        &quot;originatingCategory&quot;: &quot;AB&quot;,&#xd;
+        &quot;originatingCategoryPlatform&quot;: &quot;1&quot;&#xd;
+    },&#xd;
+    &quot;lotAddress&quot;: {&#xd;
+        &quot;address&quot;: &quot;ABCD-XYZ&quot;,&#xd;
+        &quot;city&quot;: &quot;Birmingham&quot;,&#xd;
+        &quot;postalCode&quot;: &quot;PO16 7GZ&quot;,&#xd;
+        &quot;state&quot;: &quot;NY&quot;,&#xd;
+        &quot;country&quot;: &quot;US&quot;&#xd;
+    },&#xd;
+    &quot;taxDetails&quot;: {&#xd;
+        &quot;buyersPremium&quot;: 3.14159265359,&#xd;
+        &quot;buyersPremiumCeiling&quot;: 12300.085090352453,&#xd;
+        &quot;salesTax&quot;: 0.525321988,&#xd;
+        &quot;buyersPremiumTax&quot;: 1.61977519054&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/slb-corebroker-api/v1/lot</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">6000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">6000</stringProp>
+            <stringProp name="TestPlan.comments">Create a lot , store as proerty in widget activity endpoints</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="x-ba-client-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-client-ip" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-ip</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-app-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-app-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-user-reference" elementType="Header">
+                  <stringProp name="Header.name">x-ba-user-reference</stringProp>
+                  <stringProp name="Header.value">1231</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-source-platform" elementType="Header">
+                  <stringProp name="Header.name">x-ba-source-platform</stringProp>
+                  <stringProp name="Header.value">20</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">ocp-apim-subscription-key</stringProp>
+                  <stringProp name="Header.value">${slbsubscription}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">globalLotId = new groovy.json.JsonSlurper().parse(prev.getResponseData()).lotDetails.globalLotId
+def globalLotIdString = globalLotId.toString();
+props.put(&quot;mylist_&quot;+ ${counter_value}.toString(), globalLotIdString);</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">counter_value</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="BidderRegistration Controller" enabled="true"/>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">Random random = new Random();
+int randomNumber = random.nextInt(10000000);
+vars.put(&quot;randomCustomer2Id&quot;, Integer.toString(randomNumber)+&quot;Ind&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Bidder registration Request" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;baMarketplaceCode&quot;:  ${strMarketplaceId},&#xd;
+    &quot;AuctionId&quot;: ${__P(auctionId)},&#xd;
+    &quot;baAuctionHouseId&quot;: 1,&#xd;
+    &quot;customerId&quot;:&quot;${randomCustomer2Id}&quot;,&#xd;
+    &quot;bidderId&quot;: &quot;${randomCustomer2Id}&quot;,&#xd;
+    &quot;status&quot;: &quot;Approved&quot;,&#xd;
+    &quot;bidderRef&quot;: &quot;10C&quot;,&#xd;
+    &quot;cta&quot;: &quot;The beach was crowded with snow leopards2.\\nThere was no ice cream in the freezer, nor did they have money to go to the store.\\nGreen should have smelled more tranquil, but somehow it just tasted rotten.&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${baseurlBidderReg}/v1/bidder</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Bidder GetStatus Controller" enabled="true"/>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">Random random = new Random();
+int randomNumber = random.nextInt(${customerCount})+1;
+def randomToken = props.get(&quot;myTokenList_&quot;+ randomNumber.toString());
+if (randomToken == null)
+{	
+	randomToken = props.get(&quot;myTokenList_1&quot;);
+}
+vars.put(&quot;randomToken&quot;, randomToken.toString());</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Bidder Status Request" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${baseurl}/v1/auction/${__P(auctionId)}/bidder/me</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">500</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">500</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="x-ba-client-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-client-ip" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-ip</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-app-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-app-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-user-reference" elementType="Header">
+                  <stringProp name="Header.name">x-ba-user-reference</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-source-platform" elementType="Header">
+                  <stringProp name="Header.name">x-ba-source-platform</stringProp>
+                  <stringProp name="Header.value">10</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${__V(randomToken)}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Placebid Controller array" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Place Bid" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;LotId&quot;: ${randomLot},&#xd;
+  &quot;AuctionId&quot;: ${__P(auctionId)},&#xd;
+  &quot;bidAmount&quot;: ${__V(my_bid_amount)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${baseurl}/v1/place-bid</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">{bidtimeout}</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">{bidtimeout}</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">Random random = new Random();
+int randomNumber = random.nextInt(${lotCount})+1;
+def randomLot = props.get(&quot;mylist_&quot;+ randomNumber.toString());
+if (randomLot == null)
+{	
+	randomLot =props.get(&quot;mylist_1&quot;);
+}
+
+vars.put(&quot;randomLot&quot;, randomLot.toString());
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">Random random = new Random();
+int randomNumber = random.nextInt(${customerCount})+1;
+def randomToken = props.get(&quot;myTokenList_&quot;+ randomNumber.toString());
+if (randomToken == null)
+{	
+	randomToken = props.get(&quot;myTokenList_1&quot;);
+}
+vars.put(&quot;randomToken&quot;, randomToken.toString());
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="x-ba-client-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-client-ip" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-ip</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-app-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-app-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-user-reference" elementType="Header">
+                  <stringProp name="Header.name">x-ba-user-reference</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-source-platform" elementType="Header">
+                  <stringProp name="Header.name">x-ba-source-platform</stringProp>
+                  <stringProp name="Header.value">20</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${__V(randomToken)}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+                <stringProp name="51572">422</stringProp>
+                <stringProp name="51517">409</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">40</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">100</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
+              <stringProp name="CounterConfig.incr">100</stringProp>
+              <stringProp name="CounterConfig.name">my_bid_amount</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Placebid Controller array single lot" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Place Bid single lot" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;LotId&quot;: ${singleLot},&#xd;
+  &quot;AuctionId&quot;: ${__P(auctionId)},&#xd;
+  &quot;bidAmount&quot;: ${__V(my_bid_amount2)}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${scheme}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${baseurl}/v1/place-bid</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">{bidtimeout}</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">{bidtimeout}</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">def randomLot = props.get(&quot;lotId&quot;);
+vars.put(&quot;singleLot&quot;, randomLot.toString());
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">Random random = new Random();
+int randomNumber = random.nextInt(${customerCount})+1;
+def randomToken = props.get(&quot;myTokenList_&quot;+ randomNumber.toString());
+vars.put(&quot;randomToken&quot;, randomToken.toString());
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="x-ba-client-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-client-ip" elementType="Header">
+                  <stringProp name="Header.name">x-ba-client-ip</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-app-id" elementType="Header">
+                  <stringProp name="Header.name">x-ba-app-id</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-user-reference" elementType="Header">
+                  <stringProp name="Header.name">x-ba-user-reference</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-ba-source-platform" elementType="Header">
+                  <stringProp name="Header.name">x-ba-source-platform</stringProp>
+                  <stringProp name="Header.value">20</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${__V(randomToken)}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">100</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
+              <stringProp name="CounterConfig.incr">100</stringProp>
+              <stringProp name="CounterConfig.name">my_bid_amount2</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+                <stringProp name="51572">422</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </PostThreadGroup>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

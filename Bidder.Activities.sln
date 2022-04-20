@@ -1,0 +1,63 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Api", "src\Bidder.Activities.Api\Bidder.Activities.Api.csproj", "{43D963BB-1C59-4A90-8FF4-F571CBE90C06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{98C682FA-32B4-44FC-AC59-84E29B73C744}"
+	ProjectSection(SolutionItems) = preProject
+		Bidder.Activities.API.AdapterTests\ReadMe.txt = Bidder.Activities.API.AdapterTests\ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Domain", "src\Bidder.Activities.Domain\Bidder.Activities.Domain.csproj", "{725DBC2F-DC92-463D-8962-3BDA768BB45F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Services", "src\Bidder.Activities.Services\Bidder.Activities.Services.csproj", "{918ECB55-A2A5-42AD-A83E-B8579FF6B912}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Api.UnitTests", "tests\Bidder.Activities.Api.UnitTests\Bidder.Activities.Api.UnitTests.csproj", "{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Bidder.Activities.Api.LoadTests", "tests\Bidder.Activities.Api.LoadTests\Bidder.Activities.Api.LoadTests.shproj", "{383FD75A-134D-4EBA-AC6A-77AAA3DAE3D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bidder.Activities.Api.Specs", "tests\Bidder.Activities.Api.Specs\Bidder.Activities.Api.Specs.csproj", "{A8B8D008-FD18-44F6-906B-8D6A31C5BB16}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		tests\Bidder.Activities.Api.LoadTests\Bidder.Activities.Api.LoadTests.projitems*{383fd75a-134d-4eba-ac6a-77aaa3dae3d7}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43D963BB-1C59-4A90-8FF4-F571CBE90C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D963BB-1C59-4A90-8FF4-F571CBE90C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D963BB-1C59-4A90-8FF4-F571CBE90C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D963BB-1C59-4A90-8FF4-F571CBE90C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725DBC2F-DC92-463D-8962-3BDA768BB45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725DBC2F-DC92-463D-8962-3BDA768BB45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725DBC2F-DC92-463D-8962-3BDA768BB45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725DBC2F-DC92-463D-8962-3BDA768BB45F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918ECB55-A2A5-42AD-A83E-B8579FF6B912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918ECB55-A2A5-42AD-A83E-B8579FF6B912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918ECB55-A2A5-42AD-A83E-B8579FF6B912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918ECB55-A2A5-42AD-A83E-B8579FF6B912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B8D008-FD18-44F6-906B-8D6A31C5BB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B8D008-FD18-44F6-906B-8D6A31C5BB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B8D008-FD18-44F6-906B-8D6A31C5BB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B8D008-FD18-44F6-906B-8D6A31C5BB16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B1FFAC6-6892-4F34-AFB0-DD1DFE153113} = {98C682FA-32B4-44FC-AC59-84E29B73C744}
+		{383FD75A-134D-4EBA-AC6A-77AAA3DAE3D7} = {98C682FA-32B4-44FC-AC59-84E29B73C744}
+		{A8B8D008-FD18-44F6-906B-8D6A31C5BB16} = {98C682FA-32B4-44FC-AC59-84E29B73C744}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F35F4DDF-974E-44B2-86C4-C3432A072595}
+	EndGlobalSection
+EndGlobal
