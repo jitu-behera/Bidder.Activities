@@ -12,11 +12,11 @@ namespace Bidder.Activities.Api.Controllers.V1
     [ApiController]
     [ApiVersion("1")]
     [Route("v1")]
-    public class BidderRegistrationController : ControllerBase
+    public class BuyerRegistrationController : ControllerBase
     {
         private readonly IValidator<RegistrationStatusDomain> _registrationStatusValidator;
         private readonly RegistrationStatusService _registrationStatusService;
-        public BidderRegistrationController(
+        public BuyerRegistrationController(
             IValidator<RegistrationStatusDomain> registrationStatusValidator,
             RegistrationStatusService registrationStatusService)
         {
@@ -25,7 +25,7 @@ namespace Bidder.Activities.Api.Controllers.V1
         }
 
         [HttpGet]
-        [Route("auction/{id:long}/bidder/me")]
+        [Route("tender/{id:long}/bidder/me")]
         [ProducesResponseType(typeof(GetStatusResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ValidationFailedResponse), StatusCodes.Status400BadRequest)]

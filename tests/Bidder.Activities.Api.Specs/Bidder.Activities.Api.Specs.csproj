@@ -5,7 +5,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\BidderRegistrationStatus\GetBidderRegistrationStatus.feature.cs" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="Features\BuyerRegistrationStatus\GetBidderRegistrationStatus.feature.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

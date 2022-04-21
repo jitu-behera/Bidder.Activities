@@ -13,13 +13,13 @@ namespace Bidder.Activities.Api.Controllers.V1
     [ApiController]
     [ApiVersion("1")]
     [Route("v1")]
-    public class PlaceBidController : ControllerBase
+    public class SubmitBidController : ControllerBase
     {
         private readonly RegistrationStatusService _registrationStatus;
         private readonly ITokenService _tokenService;
         private readonly IBiddingService _biddingService;
 
-        public PlaceBidController(RegistrationStatusService registrationStatus, ITokenService tokenService, IBiddingService biddingService)
+        public SubmitBidController(RegistrationStatusService registrationStatus, ITokenService tokenService, IBiddingService biddingService)
         {
             _biddingService = biddingService;
             _tokenService = tokenService;
@@ -27,7 +27,7 @@ namespace Bidder.Activities.Api.Controllers.V1
         }
 
         [HttpPost]
-        [Route("place-bid")]
+        [Route("submit-bid")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

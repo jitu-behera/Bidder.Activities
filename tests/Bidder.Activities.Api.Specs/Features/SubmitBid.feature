@@ -1,7 +1,7 @@
 ﻿Feature: Widget place bid
 
 Users on the widget need a way to place bids
-Given this is a public endpoint, we need to validate they are authenticated and registered for the auction before placing the bid
+Given this is a public endpoint, we need to validate they are authenticated and registered for the tender before placing the bid
 Then we to forward the request to the shared service (Shared Bidding Service), and return their response to our clients.
 Background:
 
@@ -24,7 +24,7 @@ Scenario: Approved bidder
 		"""
 		{ "success": true }
 		"""
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -52,7 +52,7 @@ Scenario: Approved bidder from cookie
 		"""
 		{ "success": true }
 		"""
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -81,7 +81,7 @@ Scenario: Approved bidder Bad request from shared service
 		"""
 		{ "validationErrors": "anyErrors" }
 		"""
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -105,7 +105,7 @@ Scenario Outline: Bidder with Pending or Denied status
 	And there is a record for customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
 		| BuyerId | BuyerRef | Status   |
 		| 99       | 101C      | <Status> |
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -120,12 +120,12 @@ Examples:
 	| Pending |
 	| Denied  |
 
-Scenario: Bidder not registered for the auction
+Scenario: Bidder not registered for the tender
 	Given my authorization token header is authenticated with
 		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	And there is no record with customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -137,7 +137,7 @@ Scenario: Bidder not registered for the auction
 	And the bidding service has never been called
 
 Scenario: Request without token
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -152,7 +152,7 @@ Scenario: Request with expired token
 	Given the token is expired for
 		| SourceId | CustomerId     |
 		| 10         | a_customer_123 |
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": 111,
@@ -167,7 +167,7 @@ Scenario: Placebid missing fields
 	Given my authorization token header is authenticated with
 		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": null,
@@ -187,7 +187,7 @@ Scenario: Placebid negative numbers
 	Given my authorization token header is authenticated with
 		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
-	When I send POST request to v1/place-bid
+	When I send POST request to v1/submit-bid
 		"""
 		{
 		  "ItemId": -1,
