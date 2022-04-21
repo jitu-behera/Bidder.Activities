@@ -30,7 +30,7 @@ Bidder activities is dependent on a number of other services in order to operate
 
 - Shared service is required by the place bid endpoint as it forwards the place bid call to it.
 
-- Bidder registrations CosmosDB is required to get a bidders status to determine whether or not they’re allowd to bid.
+- Buyer registrations CosmosDB is required to get a buyer status to determine whether or not they’re allowed to bid.
 
 - Key Vault access is required in order to authenticate the caller. The key is setup in the TokenService terraform steps via ARM template and rotated every 18 months.
 
@@ -40,9 +40,9 @@ To test it locally do the the following things
 
 Install cosmos-db emulator from here https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator?tabs=ssl-netstd21
 
-Then  create database with the name bidder-registration
+Then  create database with the name buyer-registrations
+Then create new container with the name buyerdata and partitionKey with partitionKey.
 
-Then create new container with the name bidderdata and partitionKey with partitionKey.
 And Insert a record like below as it depends on existing data
 ```
 {
@@ -79,7 +79,7 @@ To do this right-click on the solution in Visual Studio -> Manage NuGet packages
 
 **Client Timeouts:**
 
-The recommended timeout for the bidder activities APIs are 6 seconds for the place bid endpoint and 2 seconds for bidder status.
+The recommended timeout for the bidder activities APIs are 6 seconds for the place bid endpoint and 2 seconds for buyer status.
 
 **Swagger**
 
