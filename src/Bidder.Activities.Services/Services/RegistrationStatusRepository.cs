@@ -75,8 +75,8 @@ namespace Bidder.Activities.Services.Services
                 if (_container != null)
                     return _container;
 
-                var endpointUri = _cosmosDbSettings.Endpoint;
-                _cosmosClient = new CosmosClient(endpointUri, CosmosClientOptions);
+                var connectionString = _cosmosDbSettings.ConnectionString;
+                _cosmosClient = new CosmosClient(connectionString, CosmosClientOptions);
 
                 var databaseId = _cosmosDbSettings.Database;
                 var containerName = _cosmosDbSettings.ContainerName;

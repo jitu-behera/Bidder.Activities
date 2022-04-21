@@ -21,8 +21,6 @@ namespace Bidder.Activities.Api.Extensions
         /// <param name="app"></param>
         internal static void RegisterMiddlewares(this IApplicationBuilder app)
         {
-            
-
             app.UseMiddleware<SetCorrelationIdMiddleware>();
 
             app.UseMiddleware<HeaderValidationMiddleware>();
