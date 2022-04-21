@@ -34,27 +34,27 @@ namespace Bidder.Activities.Api.Extensions
                     ManagedIdentityClientId = settings["AppObjectId"]
                 });
 
-                config.AddAzureAppConfiguration(options =>
-                {
-                    options.Connect(new Uri(appEndpoint), azureCred)
-                        // Load configuration values with no label
-                        .Select(KeyFilter.Any, LabelFilter.Null)
-                        // Override with any configuration values specific to current hosting env
-                        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-                        .ConfigureKeyVault(kv => kv.SetCredential(azureCred))
-                        .UseFeatureFlags(featureFlagOptions =>
-                        {
-                            // Flags based on labels to segregate different environments
-                            featureFlagOptions.Label = hostingContext.HostingEnvironment.EnvironmentName;
-                            featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(1);
-                        })
-                        .ConfigureRefresh(refresh =>
-                        {
-                            // Configure a sentinel key which when changed, will force all the keys to be refreshed from Azure app configuration
-                            refresh.Register("AppConfigSentinel", true)
-                                .SetCacheExpiration(TimeSpan.FromMinutes(1));
-                        });
-                });
+                //config.AddAzureAppConfiguration(options =>
+                //{
+                //    options.Connect(new Uri(appEndpoint), azureCred)
+                //        // Load configuration values with no label
+                //        .Select(KeyFilter.Any, LabelFilter.Null)
+                //        // Override with any configuration values specific to current hosting env
+                //        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+                //        .ConfigureKeyVault(kv => kv.SetCredential(azureCred))
+                //        .UseFeatureFlags(featureFlagOptions =>
+                //        {
+                //            // Flags based on labels to segregate different environments
+                //            featureFlagOptions.Label = hostingContext.HostingEnvironment.EnvironmentName;
+                //            featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(1);
+                //        })
+                //        .ConfigureRefresh(refresh =>
+                //        {
+                //            // Configure a sentinel key which when changed, will force all the keys to be refreshed from Azure app configuration
+                //            refresh.Register("AppConfigSentinel", true)
+                //                .SetCacheExpiration(TimeSpan.FromMinutes(1));
+                //        });
+                //});
             });
         }
 

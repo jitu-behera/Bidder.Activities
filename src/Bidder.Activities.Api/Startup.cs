@@ -195,8 +195,8 @@ namespace Bidder.Activities.Api
             app.RegisterSwagger();
 
             app.RegisterMiddlewares();
-            if (UseAppConfiguration)
-                app.UseAzureAppConfiguration();
+            //if (UseAppConfiguration)
+            //    app.UseAzureAppConfiguration();
 
             app.UseHttpsRedirection();
             app.UseEndpoints(endpoints => { endpoints.MapControllers().RequireAuthorization(); });
