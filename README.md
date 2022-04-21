@@ -10,7 +10,7 @@ The MVP provides two endpoints.
 - **auction/{id:long}/bidder/me** to allow you to check the status of a bidder on a particular auction.
 - **place-bid**  which checks if you're allowed to make the requested bid then forwards it to shared service.
 
-![Artifacts](./docs/BidderRegWidgetAct.PNG)
+![Artifacts](./docs/Bidder.Activities.PNG)
 
 ##Developer Notes
 
@@ -44,7 +44,7 @@ Then  create database with the name bidder-registration
 
 Then create new container with the name bidderdata and partitionKey with partitionKey.
 And Insert a record like below as it depends on existing data
-
+```
 {
     "id": "123-a_customer_123-201",
     "partitionKey": "a_customer_123-201",
@@ -62,6 +62,7 @@ And Insert a record like below as it depends on existing data
     "_attachments": "attachments/",
     "_ts": 1650545113
 }
+```
 
 Run the application in dev or development environment.
 
