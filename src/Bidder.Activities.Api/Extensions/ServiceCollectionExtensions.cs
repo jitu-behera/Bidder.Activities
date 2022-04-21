@@ -130,7 +130,9 @@ namespace Bidder.Activities.Api.Extensions
             configuration.Bind("BiddingServiceConfigs", biddingServiceConfigs);
             services.AddSingleton(biddingServiceConfigs);
 
-            services.AddSingleton<IBiddingService, BiddingService>();
+            // services.AddSingleton<IBiddingService, BiddingService>();
+            services.AddSingleton<IBiddingService, MockBiddingService>();
+            
         }
         public static void AddCorrelationIdServices(this IServiceCollection serviceCollection, CorrelationIdConfiguration configuration)
         {

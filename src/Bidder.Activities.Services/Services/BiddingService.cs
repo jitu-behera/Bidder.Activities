@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -65,5 +66,13 @@ public class BiddingService : IBiddingService
             }
             return _httpClient;
         }
+    }
+}
+
+public class MockBiddingService : IBiddingService
+{
+    public Task<BiddingResponse> PlaceBid(BiddingRequest biddingRequest)
+    {
+        return Task.FromResult(new BiddingResponse() { StatusCode = HttpStatusCode.OK, Response = System.Text.Json.JsonSerializer.Serialize(new {success="true"}) });
     }
 }
