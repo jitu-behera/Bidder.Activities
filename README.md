@@ -36,6 +36,19 @@ Bidder activities is dependent on a number of other services in order to operate
 
 ##Local Setup
 
+To test it locally do the the following things
+
+Install cosmos-db emulator from here https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator?tabs=ssl-netstd21
+
+Then  create database with the name bidder-registration
+
+Then create new container with the name bidderdata and partitionKey with partitionKey.
+And Insert a record like below as it depends on existing data
+
+
+Run the application in dev or development environment.
+
+
 **NuGet Configuration** In order to run the project you need to make sure you have the following NuGet source registered into your Package manager console:
 
 Nuget link - 
