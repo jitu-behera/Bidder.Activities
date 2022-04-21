@@ -45,6 +45,23 @@ Then  create database with the name bidder-registration
 Then create new container with the name bidderdata and partitionKey with partitionKey.
 And Insert a record like below as it depends on existing data
 
+{
+    "id": "123-a_customer_123-201",
+    "partitionKey": "a_customer_123-201",
+    "marketplaceUniqueCode": 201,
+    "tenderId": 123,
+    "tenderHouseId": 1001,
+    "customerId": "a_customer_123",
+    "buyerId": "1245",
+    "tenderRegistrationNumber": "10AC",
+    "status": 1,
+    "cta": "The beach was crowded with snow leopards2.\\nThere was no ice cream in the freezer, nor did they have money to go to the store.\\nGreen should have smelled more tranquil, but somehow it just tasted rotten.",
+    "_rid": "XrJVAO2AZAQBAAAAAAAAAA==",
+    "_self": "dbs/XrJVAA==/colls/XrJVAO2AZAQ=/docs/XrJVAO2AZAQBAAAAAAAAAA==/",
+    "_etag": "\"00000000-0000-0000-557d-a54a519801d8\"",
+    "_attachments": "attachments/",
+    "_ts": 1650545113
+}
 
 Run the application in dev or development environment.
 
