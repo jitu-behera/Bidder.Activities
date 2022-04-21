@@ -15,21 +15,21 @@ Background:
 
 Scenario: Approved bidder
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 10         | a_customer_123 | 201           |
 	And there is a record for customer id 121-a_customer_123-201 and partitionKey a_customer_123-201 in the database
-		| BidderId | CTA | Status   |
+		| BuyerId | CTA | Status   |
 		| 99       |     | Approved |
 	When I send get request to /auction/121/bidder/me
 	Then response should be 200 OK
 
 	And the response should contain these details
-		| BidderId | CTA | Status   |
+		| BuyerId | CTA | Status   |
 		| 99       |     | Approved |
 
 Scenario: Approved bidder with invalid auction id
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     |
+		| SourceId | CustomerId     |
 		| 10         | a_customer_123 |
 	When I send get request to /auction/-121/bidder/me
 	Then response should be 400 Bad Request
@@ -40,18 +40,18 @@ Scenario: Request without token
 
 Scenario: Request with expired token
 	Given the token is expired for
-		| PlatformId | CustomerId     |
+		| SourceId | CustomerId     |
 		| 10         | a_customer_123 |
 	When I send get request to /auction/121/bidder/me
 	Then response should be 401 Unauthorized
 
 Scenario: Request when the auction does not contain a registered bidder
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 10         | a_customer_123 | 201           |
 	And there is no record with customer id 121-a_customer_123-201 and partitionKey a_customer_123-201 in the database
 	When I send get request to /auction/121/bidder/me
 	Then response should be 200 OK
 	And the response should contain these details
-		| BidderID | Status | CTA |
+		| BuyerId | Status | CTA |
 		|          | None   |     |

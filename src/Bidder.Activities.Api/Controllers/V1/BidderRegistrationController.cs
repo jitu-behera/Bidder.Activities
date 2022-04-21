@@ -37,7 +37,7 @@ namespace Bidder.Activities.Api.Controllers.V1
                 return BadRequest(new ValidationFailedResponse(registrationStatus.ValidationResults));
             }
 
-            var statusDetails = await _registrationStatusService.GetRegistrationStatusDetails(registrationStatus.AuctionId).ConfigureAwait(false);
+            var statusDetails = await _registrationStatusService.GetRegistrationStatusDetails(registrationStatus.TenderId).ConfigureAwait(false);
             return Ok(new GetStatusResponse(statusDetails));
         }
 

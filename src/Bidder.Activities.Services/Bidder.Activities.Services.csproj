@@ -16,10 +16,9 @@
 		<PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Exceptions\" />
-	  <Folder Include="Extensions\" />
+	  <ProjectReference Include="..\Bidder.Activities.Domain\Bidder.Activities.Domain.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Bidder.Activities.Domain\Bidder.Activities.Domain.csproj" />
+	  <Folder Include="Interfaces\" />
 	</ItemGroup>	
 </Project>

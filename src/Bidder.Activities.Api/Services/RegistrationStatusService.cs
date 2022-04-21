@@ -15,16 +15,16 @@ namespace Bidder.Activities.Api.Services
             _registrationStatusRepository = registrationStatusRepository;
         }
 
-        public Task<RegistrationStatus> GetRegistrationStatusDetails(long auctionId)
+        public Task<RegistrationStatus> GetRegistrationStatusDetails(long TenderId)
         {
             var tokenDetails = _tokenService.GetTokenDetails();
-            return GetRegistrationStatus(auctionId, tokenDetails);
+            return GetRegistrationStatus(TenderId, tokenDetails);
         }
 
-        public Task<RegistrationStatus> GetRegistrationStatus(long auctionId, TokenDetails tokenDetails)
+        public Task<RegistrationStatus> GetRegistrationStatus(long TenderId, TokenDetails tokenDetails)
         {
-            var id = $"{auctionId}-{tokenDetails.CustomerId}-{tokenDetails.MarketplaceId}";
-            var partitionKey = $"{tokenDetails.CustomerId}-{tokenDetails.MarketplaceId}";
+            var id = $"{TenderId}-{tokenDetails.CustomerId}-{tokenDetails.MarketplaceUniqueCode}";
+            var partitionKey = $"{tokenDetails.CustomerId}-{tokenDetails.MarketplaceUniqueCode}";
             return _registrationStatusRepository.GetItemAsync(id, partitionKey);
         }
     }

@@ -35,7 +35,7 @@ namespace Bidder.Activities.Api.Controllers.V1
         public async Task<IActionResult> GetStatus(PlaceBidRequest bidRequest)
         {
             var tokenDetails = _tokenService.GetTokenDetails();
-            var registrationStatus = await _registrationStatus.GetRegistrationStatus(bidRequest.AuctionId.Value, tokenDetails);
+            var registrationStatus = await _registrationStatus.GetRegistrationStatus(bidRequest.TenderId.Value, tokenDetails);
             if (registrationStatus is not { Status: Status.Approved })
                 return Forbid();
 
@@ -49,13 +49,13 @@ namespace Bidder.Activities.Api.Controllers.V1
         {
             return new BiddingRequest
             {
-                LotId = bidRequest.LotId.Value,
-                AuctionId = bidRequest.AuctionId.Value,
+                ItemId = bidRequest.ItemId.Value,
+                TenderId = bidRequest.TenderId.Value,
                 Amount = bidRequest.BidAmount.Value,
-                BidderId = registrationStatusDetails.BidderId,
-                BidderRef = registrationStatusDetails.BidderRef,
-                PlatformId = int.Parse(tokenDetails.PlatformId),
-                MarketplaceId = int.Parse(tokenDetails.MarketplaceId),
+                BuyerId = registrationStatusDetails.BuyerId,
+                BuyerRef = registrationStatusDetails.BuyerRef,
+                SourceId = int.Parse(tokenDetails.SourceId),
+                MarketplaceUniqueCode = int.Parse(tokenDetails.MarketplaceUniqueCode),
                 MarketplaceChannelCode = "PxbJJKWid1"
             };
         }
@@ -66,11 +66,11 @@ namespace Bidder.Activities.Api.Controllers.V1
         private const string RangeErrorMessageFormat = "The {0} field should be a positive number.";
         [Required]
         [Range(1, long.MaxValue, ErrorMessage = RangeErrorMessageFormat)]
-        public long? LotId { get; set; }
+        public long? ItemId { get; set; }
 
         [Required]
         [Range(1, long.MaxValue, ErrorMessage = RangeErrorMessageFormat)]
-        public long? AuctionId { get; set; }
+        public long? TenderId { get; set; }
 
         [Required]
         [Range(0.01, double.MaxValue, ErrorMessage = RangeErrorMessageFormat)]

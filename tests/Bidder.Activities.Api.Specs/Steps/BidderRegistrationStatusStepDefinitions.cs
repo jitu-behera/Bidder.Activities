@@ -61,7 +61,7 @@ namespace Bidder.Activities.Api.Specs.Steps
             var registrationStatus = responseDetails.CreateInstance<RegistrationStatus>();
             _ = GetRegistrationStatusResponse();
 
-            _actualResponseBody.BidderId?.Should().Be(registrationStatus.BidderId);
+            _actualResponseBody.BuyerId?.Should().Be(registrationStatus.BuyerId);
             _actualResponseBody.CTA?.Should().Be(registrationStatus.CTA);
             _actualResponseBody.Status.Should().Be(registrationStatus.Status);
         }

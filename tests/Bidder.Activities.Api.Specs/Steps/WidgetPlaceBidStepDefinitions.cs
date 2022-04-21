@@ -32,7 +32,7 @@ namespace Bidder.Activities.Api.Specs
         }
 
         [Given(@"there is a record for customer id (.*) and partitionKey (.*) in the database")]
-        public void GivenThereIsARecordForCustomerIdA_Customer_AndMarketPlaceIdIdInTheDatabase(string documentKey, string partitionKey, Table table)
+        public void GivenThereIsARecordForCustomerIdA_Customer_AndMarketplaceUniqueCodeIdInTheDatabase(string documentKey, string partitionKey, Table table)
         {
             var registrationStatusDetails = table.CreateInstance<RegistrationStatus>();
 
@@ -43,7 +43,7 @@ namespace Bidder.Activities.Api.Specs
         }
 
         [Given(@"there is no record with customer id (.*) and partitionKey (.*) in the database")]
-        public void GivenThereIsNoRecordWithCustomerIdA_Customer_AndMarketplaceIdInTheDatabase(string documentKey, string partitionKey)
+        public void GivenThereIsNoRecordWithCustomerIdA_Customer_AndMarketplaceUniqueCodeInTheDatabase(string documentKey, string partitionKey)
         {
             _bidderStatusRepositoryMock.Setup(x => x.GetItemAsync(documentKey, partitionKey))
                 .ReturnsAsync((RegistrationStatus)null);
@@ -94,13 +94,13 @@ namespace Bidder.Activities.Api.Specs
 
         private bool AreEqual(BiddingRequest actual, BiddingRequest expected)
         {
-            actual.LotId.Should().Be(expected.LotId);
-            actual.AuctionId.Should().Be(expected.AuctionId);
+            actual.ItemId.Should().Be(expected.ItemId);
+            actual.TenderId.Should().Be(expected.TenderId);
             actual.Amount.Should().Be(expected.Amount);
-            actual.BidderId.Should().Be(expected.BidderId);
-            actual.BidderRef.Should().Be(expected.BidderRef);
-            actual.PlatformId.Should().Be(expected.PlatformId);
-            actual.MarketplaceId.Should().Be(expected.MarketplaceId);
+            actual.BuyerId.Should().Be(expected.BuyerId);
+            actual.BuyerRef.Should().Be(expected.BuyerRef);
+            actual.SourceId.Should().Be(expected.SourceId);
+            actual.MarketplaceUniqueCode.Should().Be(expected.MarketplaceUniqueCode);
             actual.MarketplaceChannelCode.Should().Be(expected.MarketplaceChannelCode);
             return true;
         }

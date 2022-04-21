@@ -1,12 +1,10 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Bidder.Activities.Domain.Entities
+﻿namespace Bidder.Activities.Domain.Entities
 {
     public class TokenDetails
     {
-        public string PlatformId { get; set; }
+        public string SourceId { get; set; }
         public string CustomerId { get; set; }
-        public string MarketplaceId { get; set; }
+        public string MarketplaceUniqueCode { get; set; }
     }
 
 }

@@ -15,10 +15,10 @@ Background:
 
 Scenario: Approved bidder
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	And there is a record for customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
-		| BidderId | BidderRef | Status   |
+		| BuyerId | BuyerRef | Status   |
 		| 99       | 101C      | Approved |
 	And the bidding service response code is 200 with response body
 		"""
@@ -27,14 +27,14 @@ Scenario: Approved bidder
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
 	Then response should be 200 OK
 	And the shared bidding service must have been called with
-		| LotId | AuctionId | Amount | BidderId | BidderRef | PlatformId | MarketplaceId | MarketplaceChannelCode |
+		| ItemId | TenderId | Amount | BuyerId | BuyerRef | SourceId | MarketplaceUniqueCode | MarketplaceChannelCode |
 		| 111   | 10        | 99.59  | 99       | 101C      | 20         | 201           | PxbJJKWid1               |
 	And the response body should be
 		"""
@@ -43,10 +43,10 @@ Scenario: Approved bidder
 
 Scenario: Approved bidder from cookie
 	Given my authorization token cookie is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	And there is a record for customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
-		| BidderId | BidderRef | Status   |
+		| BuyerId | BuyerRef | Status   |
 		| 99       | 101C      | Approved |
 	And the bidding service response code is 200 with response body
 		"""
@@ -55,14 +55,14 @@ Scenario: Approved bidder from cookie
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
 	Then response should be 200 OK
 	And the shared bidding service must have been called with
-		| LotId | AuctionId | Amount | BidderId | BidderRef | PlatformId | MarketplaceId | MarketplaceChannelCode |
+		| ItemId | TenderId | Amount | BuyerId | BuyerRef | SourceId | MarketplaceUniqueCode | MarketplaceChannelCode |
 		| 111   | 10        | 99.59  | 99       | 101C      | 20         | 201           | PxbJJKWid1               |
 	And the response body should be
 		"""
@@ -72,10 +72,10 @@ Scenario: Approved bidder from cookie
 	
 Scenario: Approved bidder Bad request from shared service
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	And there is a record for customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
-		| BidderId | BidderRef | Status   |
+		| BuyerId | BuyerRef | Status   |
 		| 99       | 101C      | Approved |
 	And the bidding service response code is 400 with response body
 		"""
@@ -84,14 +84,14 @@ Scenario: Approved bidder Bad request from shared service
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
 	Then response should be 400 Bad Request
 	And the shared bidding service must have been called with
-		| LotId | AuctionId | Amount | BidderId | BidderRef | PlatformId | MarketplaceId | MarketplaceChannelCode |
+		| ItemId | TenderId | Amount | BuyerId | BuyerRef | SourceId | MarketplaceUniqueCode | MarketplaceChannelCode |
 		| 111   | 10        | 99.59  | 99       | 101C      | 20         | 201           | PxbJJKWid1               |
 	And the response body should be
 		"""
@@ -100,16 +100,16 @@ Scenario: Approved bidder Bad request from shared service
 
 Scenario Outline: Bidder with Pending or Denied status
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	And there is a record for customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
-		| BidderId | BidderRef | Status   |
+		| BuyerId | BuyerRef | Status   |
 		| 99       | 101C      | <Status> |
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
@@ -122,14 +122,14 @@ Examples:
 
 Scenario: Bidder not registered for the auction
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	And there is no record with customer id 10-a_customer_123-201 and partitionKey a_customer_123-201 in the database
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
@@ -140,8 +140,8 @@ Scenario: Request without token
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
@@ -150,13 +150,13 @@ Scenario: Request without token
 
 Scenario: Request with expired token
 	Given the token is expired for
-		| PlatformId | CustomerId     |
+		| SourceId | CustomerId     |
 		| 10         | a_customer_123 |
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": 111,
-		  "AuctionId": 10,
+		  "ItemId": 111,
+		  "TenderId": 10,
 		  "bidAmount": 99.59
 		}
 		"""
@@ -165,13 +165,13 @@ Scenario: Request with expired token
 
 Scenario: Placebid missing fields
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": null,
-		  "AuctionId": null,
+		  "ItemId": null,
+		  "TenderId": null,
 		  "bidAmount": null
 		}
 		"""
@@ -179,19 +179,19 @@ Scenario: Placebid missing fields
 	And the bidding service has never been called
 	And the response contains these validation errors with unique paths
 		| code | value              | description                      | path         |
-		| 100  | ERROR_MISSING_DATA | The LotId field is required.     | LotId     |
-		| 100  | ERROR_MISSING_DATA | The AuctionId field is required. | AuctionId |
+		| 100  | ERROR_MISSING_DATA | The ItemId field is required.     | ItemId     |
+		| 100  | ERROR_MISSING_DATA | The TenderId field is required. | TenderId |
 		| 100  | ERROR_MISSING_DATA | The BidAmount field is required. | BidAmount    |
 
 Scenario: Placebid negative numbers
 	Given my authorization token header is authenticated with
-		| PlatformId | CustomerId     | MarketplaceId |
+		| SourceId | CustomerId     | MarketplaceUniqueCode |
 		| 20         | a_customer_123 | 201           |
 	When I send POST request to v1/place-bid
 		"""
 		{
-		  "LotId": -1,
-		  "AuctionId": -1,
+		  "ItemId": -1,
+		  "TenderId": -1,
 		  "bidAmount": -1
 		}
 		"""
@@ -199,6 +199,6 @@ Scenario: Placebid negative numbers
 	And the bidding service has never been called
 	And the response contains these validation errors with unique paths
 		| code | value              | description                                         | path         |
-		| 100  | ERROR_MISSING_DATA | The LotId field should be a positive number.     | LotId     |
-		| 100  | ERROR_MISSING_DATA | The AuctionId field should be a positive number. | AuctionId |
+		| 100  | ERROR_MISSING_DATA | The ItemId field should be a positive number.     | ItemId     |
+		| 100  | ERROR_MISSING_DATA | The TenderId field should be a positive number. | TenderId |
 		| 100  | ERROR_MISSING_DATA | The BidAmount field should be a positive number.    | BidAmount    |

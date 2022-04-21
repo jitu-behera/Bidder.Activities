@@ -73,10 +73,10 @@ namespace Bidder.Activities.Specs.Steps
             var tokenDetails = tokenInfo.CreateInstance<TokenDetails>();
             var claims = new List<Claim>
             {
-                new("platform_id", tokenDetails.PlatformId),
+                new("platform_id", tokenDetails.SourceId),
                 //new Claim("sub", model.Subject ?? string.Empty),
                 new("ext_customer_id", tokenDetails.CustomerId ?? string.Empty),
-                new("marketplace_Id", tokenDetails.MarketplaceId ?? string.Empty),
+                new("marketplace_Id", tokenDetails.MarketplaceUniqueCode ?? string.Empty),
             };
 
             return MockTokenGenerator.GenerateTokenWith(claims, DateTime.UtcNow.AddDays(1));

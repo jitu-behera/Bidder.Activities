@@ -4,9 +4,9 @@ namespace Bidder.Activities.Api.Domain.Model
 {
     public class GetStatusResponse
     {
-        public GetStatusResponse(string bidderId, Status status, string cta)
+        public GetStatusResponse(string buyerId, Status status, string cta)
         {
-            BidderId = bidderId;
+            BuyerId = buyerId;
             Status = status;
             CTA = cta;
         }
@@ -15,13 +15,13 @@ namespace Bidder.Activities.Api.Domain.Model
         {
             if (registrationStatus == null)
                 return;
-            BidderId = registrationStatus.BidderId;
+            BuyerId = registrationStatus.BuyerId;
             Status = registrationStatus.Status;
             CTA = registrationStatus.CTA;
 
         }
 
-        public string BidderId { get; }
+        public string BuyerId { get; }
         public Status Status { get; } = Status.None;
         public string CTA { get; }
     }

@@ -6,8 +6,7 @@ namespace Bidder.Activities.Services.Services
 {
     public class TokenService : ITokenService
     {
-        private IHttpContextAccessor _httpContextAccessor;
-        private const string BearerPrefix = "Bearer ";
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public TokenService(IHttpContextAccessor httpContextAccessor)
         {
@@ -21,8 +20,8 @@ namespace Bidder.Activities.Services.Services
             return new TokenDetails
             {
                 CustomerId = claimsDictionary["ext_customer_id"].Value,
-                MarketplaceId = claimsDictionary["marketplace_Id"].Value,
-                PlatformId = claimsDictionary["platform_id"].Value
+                MarketplaceUniqueCode = claimsDictionary["marketplace_Id"].Value,
+                SourceId = claimsDictionary["platform_id"].Value
             };
         }
     }

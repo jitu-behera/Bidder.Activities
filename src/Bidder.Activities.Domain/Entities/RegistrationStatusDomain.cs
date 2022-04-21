@@ -8,12 +8,12 @@ namespace Bidder.Activities.Domain.Entities
     public class RegistrationStatusDomain
     {
       
-        public long AuctionId { get; }
+        public long TenderId { get; }
         public List<ValidationError> ValidationResults { get; set; }
         public RegistrationStatusDomain(IValidator<RegistrationStatusDomain> validator,
-            long auctionId)
+            long tenderId)
         {
-            AuctionId = auctionId;
+            TenderId = tenderId;
            
             ValidationResults = validator.Validate(this).MapToCustomError();
         }

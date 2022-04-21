@@ -7,14 +7,14 @@ namespace Bidder.Activities.Domain.Validators.Fluent
     {
         public RegistrationStatusValidator()
         {
-            RuleFor(m => m.AuctionId)
+            RuleFor(m => m.TenderId)
                 .GreaterThan(0)
-                .WithCustom(ErrorCode.ERROR_INVALID_AUCTIONID);
+                .WithCustom(ErrorCode.ERROR_INVALID_TenderId);
         }
     }
 
     public enum ErrorCode
     {
-        ERROR_INVALID_AUCTIONID = 1001,
+        ERROR_INVALID_TenderId = 1001,
     }
 }

@@ -16,9 +16,9 @@ namespace Bidder.Activities.Api.UnitTests
         }
         [Theory]
         [InlineData(11)]
-        public void When_AuctionId_Is_Positive_Number_Should_Not_Have_Any_ValidationError(long auctionId)
+        public void When_TenderId_Is_Positive_Number_Should_Not_Have_Any_ValidationError(long TenderId)
         {
-            var registrationStatusDomain = new RegistrationStatusDomain(_registrationStatusValidatorTest, auctionId);
+            var registrationStatusDomain = new RegistrationStatusDomain(_registrationStatusValidatorTest, TenderId);
             var result = _registrationStatusValidatorTest.TestValidate(registrationStatusDomain);
             result.IsValid.Should().Be(true);
         }
@@ -26,9 +26,9 @@ namespace Bidder.Activities.Api.UnitTests
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
-        public void When_AuctionId_Is_Negative_Number_Should_Not_Have_Any_ValidationError(long auctionId)
+        public void When_TenderId_Is_Negative_Number_Should_Not_Have_Any_ValidationError(long TenderId)
         {
-            var registrationStatusDomain = new RegistrationStatusDomain(_registrationStatusValidatorTest, auctionId);
+            var registrationStatusDomain = new RegistrationStatusDomain(_registrationStatusValidatorTest, TenderId);
             var result = _registrationStatusValidatorTest.TestValidate(registrationStatusDomain);
             result.IsValid.Should().Be(false);
         }

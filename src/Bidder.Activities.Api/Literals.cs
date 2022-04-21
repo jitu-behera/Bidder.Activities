@@ -6,7 +6,9 @@
         {
             public static string ClaimsIssuer = "BA";
             public static string Audience = "Shared-Services";
+
         }
 
+        
     }
 }
