@@ -32,7 +32,7 @@ namespace Bidder.Activities.Api
     [ExcludeFromCodeCoverage]
     public class Startup
     {
-        protected bool UseAppConfiguration { get; set; } = true;
+        protected bool UseAppConfiguration { get; set; } = false;
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
@@ -195,8 +195,8 @@ namespace Bidder.Activities.Api
             app.RegisterSwagger();
 
             app.RegisterMiddlewares();
-            //if (UseAppConfiguration)
-            //    app.UseAzureAppConfiguration();
+            if (UseAppConfiguration)
+                app.UseAzureAppConfiguration();
 
             app.UseHttpsRedirection();
             app.UseEndpoints(endpoints => { endpoints.MapControllers().RequireAuthorization(); });
