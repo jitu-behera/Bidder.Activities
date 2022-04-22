@@ -7,8 +7,8 @@ The bidder activities microservice is designed to be used from the widget. It al
 ##MVP
 
 The MVP provides two endpoints. 
-- **auction/{id:long}/bidder/me** to allow you to check the status of a bidder on a particular auction.
-- **place-bid**  which checks if you're allowed to make the requested bid then forwards it to shared service.
+- **tender/{id:long}/bidder/me** to allow you to check the status of a buyer on a particular tender.
+- **submit-bid**  which checks if you're allowed to make the requested bid then forwards it to shared service.
 
 ![Artifacts](./docs/Layers.png)
 
